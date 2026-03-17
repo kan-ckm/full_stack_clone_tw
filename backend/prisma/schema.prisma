@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model User{ // tên trong code
+  id String @id @default(uuid())
+  
+  email String @unique
+  password String 
+  
+  username String @unique
+  displayName String @map("display_name") //@map là định dạng tên cột trong database 
+  
+  avatar String?
+  bio String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updateAt DateTime  @updatedAt @map("update_at")
+
+@@map("users") // đổi tên trong database
+}
