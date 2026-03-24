@@ -1,6 +1,6 @@
 //Hàm dùng để chuyển từ giá trị thường "string" một là "true 2 là false dạng chuỗi"  thành kiểu boolean
-
-export function parseBoolean(value: string): boolean {  // thiết lập cho tham số đầu vào là string và trả về là kiểu boolean
+// thiết lập cho tham số đầu vào là string và trả về là kiểu boolean 
+export function parseBoolean(value: string): boolean {  
 
     if (typeof value === 'boolean') {
         return value
