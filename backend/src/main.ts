@@ -18,7 +18,7 @@ async function bootstrap() {
     const redis = app.get(RedisService)
 
     //  đọc cookie từ req
-    app.use(cookieParser(config.getOrThrow<string>('COOKIES_SECRET')))
+    app.use(cookieParser.default(config.getOrThrow<string>('COOKIES_SECRET')))
 
     // validation toàn cục kiểm tra dữ liệu đầu vào
     app.useGlobalPipes(
@@ -29,7 +29,7 @@ async function bootstrap() {
 
     // auth session lưu vào redis
     app.use(
-        session({
+        session.default({
             secret: config.getOrThrow<string>('SESSION_SECRET'),
             name: config.getOrThrow<string>('SESSION_NAME'),
             resave: false,

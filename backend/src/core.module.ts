@@ -6,6 +6,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { getGraphQLConfig } from './core/config/graphql.config'
 import { PrismaModule } from './core/prisma/prisma.module'
 import { RedisModule } from './core/redis/redis.module'
+import { AccountModule } from './modules/auth/account/account.module'
 
 //module trung tâm dùng để tập hợp và cấu hình các thành phần cốt lõi của ứng dụng.
 @Module({
@@ -21,7 +22,8 @@ import { RedisModule } from './core/redis/redis.module'
             inject: [ConfigService]
         }),
         PrismaModule,
-        RedisModule
+        RedisModule,
+        AccountModule
     ]
 })
 export class CoreModule {}
