@@ -2,7 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 
 import { AccountService } from './account.service'
 import { UserModel } from './models/user.model'
-import type { CreateUserInput } from '../inputs/create-user.input'
+import { CreateUserInput } from '../inputs/create-user.input'
 
 //resolver nó na ná định nghĩa API
 @Resolver('Account')
