@@ -3,7 +3,7 @@ import { Query, Resolver } from '@nestjs/graphql'
 import { AccountService } from './account.service'
 import { UserModel } from './models/user.model'
 
-// nó na ná định nghĩa API
+//resolver nó na ná định nghĩa API
 @Resolver('Account')
 export class AccountResolver {
     public constructor(private readonly accountService: AccountService) {}
