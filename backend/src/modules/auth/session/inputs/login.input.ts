@@ -1,9 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql'
-import {
-    IsNotEmpty,
-    IsString,
-    MinLength
-} from 'class-validator'
+import { IsNotEmpty, IsString, MinLength } from 'class-validator'
 
 //định nghĩa xem đầu vào đăng nhập cho User là gì
 @InputType()
