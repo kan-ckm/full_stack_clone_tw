@@ -20,7 +20,7 @@ input LoginInput {
 
 type Mutation {
   createUser(data: CreateUserInput!): Boolean!
-  login(data: LoginInput!): UserModel!
+  loginUser(data: LoginInput!): UserModel!
   logout: Boolean!
 }
 

@@ -44,15 +44,17 @@ export class SessionService {
 
             req.session.save(err => {
                 if (err) {
+                    console.log(err)
                     return reject(
                         new InternalServerErrorException(
                             'Không lưu được session'
                         )
                     )
+                    
                 }
-                resolve({
+                resolve(
                     user
-                })
+                )
             })
         })
     }

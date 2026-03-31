@@ -15,6 +15,7 @@ async function bootstrap() {
     const app = await NestFactory.create(CoreModule)
 
     const config = app.get(ConfigService)
+    // kết nối redis
     const redis = app.get(RedisService)
 
     //  đọc cookie từ req

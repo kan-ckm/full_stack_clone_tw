@@ -10,7 +10,7 @@ export class SessionResolver {
    public constructor(private readonly sessionService: SessionService) {}
 
    //api logi
-   @Mutation(()=>UserModel,{name:'login'})
+   @Mutation(()=>UserModel,{name:'loginUser'})
 public  async login(@Context(){req}:GqlContext, @Args('data')input:LoginInput){
  return this.sessionService.login(req,input)
 
