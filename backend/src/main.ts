@@ -1,7 +1,7 @@
 import { ValidationPipe } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
-import { RedisStore } from 'connect-redis'
+import  RedisStore  from 'connect-redis'
 // cách ghi * as cookieParser có nghĩa là import tất cả thư viện đó dưới tên biến là cookieParser
 import * as cookieParser from 'cookie-parser'
 import * as session from 'express-session'
@@ -16,7 +16,7 @@ async function bootstrap() {
 
     const config = app.get(ConfigService)
     // kết nối redis
-    const redis = app.get(RedisService)
+  const redis = app.get(RedisService)
 
     //  đọc cookie từ req
     app.use(cookieParser.default(config.getOrThrow<string>('COOKIES_SECRET')))
@@ -50,7 +50,8 @@ async function bootstrap() {
             }, // nơi lưu vào redis hay vì RAM
             store: new RedisStore({
                 client: redis,
-                prefix: config.getOrThrow<string>('SESSION_FOLDER')
+                prefix: config.getOrThrow<string>('SESSION_FOLDER'),
+                
             })
         })
     )
