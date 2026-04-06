@@ -16,7 +16,7 @@ public  async login(@Context(){req}:GqlContext, @Args('data')input:LoginInput){
 
 }
 //api logout
-@Mutation(()=>Boolean,{name:'logout'})
+@Mutation(()=>Boolean,{name:'logoutUser'})
 public  async logout(@Context(){req}:GqlContext){
  return this.sessionService.logout(req)
 

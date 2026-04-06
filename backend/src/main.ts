@@ -16,7 +16,7 @@ async function bootstrap() {
 
     const config = app.get(ConfigService)
     // kết nối redis
-  const redis = app.get(RedisService)
+    const redis = app.get(RedisService)
 
     //  đọc cookie từ req
     app.use(cookieParser.default(config.getOrThrow<string>('COOKIES_SECRET')))
