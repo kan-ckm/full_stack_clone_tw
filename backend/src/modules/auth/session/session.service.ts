@@ -4,19 +4,22 @@ import {
     NotFoundException,
     UnauthorizedException
 } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import { verify } from 'argon2'
 import { rejects } from 'assert'
 import type { Request } from 'express'
 
-import  { PrismaService } from '@/src/core/prisma/prisma.service'
+import { PrismaService } from '@/src/core/prisma/prisma.service'
 
 import { LoginInput } from './inputs/login.input'
-import  { ConfigService } from '@nestjs/config'
 
 @Injectable()
 export class SessionService {
     // khai báo luôn prisma đỡ phải config thủ công
-    public constructor(private readonly prismaService: PrismaService , private readonly configService:ConfigService) {}
+    public constructor(
+        private readonly prismaService: PrismaService,
+        private readonly configService: ConfigService
+    ) {}
 
     //service đăng nhập
     public async login(req: Request, input: LoginInput) {
@@ -50,11 +53,8 @@ export class SessionService {
                             'Không lưu được session'
                         )
                     )
-                    
                 }
-                resolve(
-                    user
-                )
+                resolve(user)
             })
         })
     }
@@ -69,7 +69,9 @@ export class SessionService {
                         )
                     )
                 }
-                req.res?.clearCookie(this.configService.getOrThrow<string>('SESSION_NAME'))
+                req.res?.clearCookie(
+                    this.configService.getOrThrow<string>('SESSION_NAME')
+                )
                 resolve(true)
             })
         })
