@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
 
-import type { PrismaService } from '@/src/core/prisma/prisma.service'
+import { PrismaService } from '@/src/core/prisma/prisma.service'
 
 @Injectable()
 /*

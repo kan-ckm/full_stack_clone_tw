@@ -11,7 +11,7 @@ import { SessionService } from './session.service'
 export class SessionResolver {
     public constructor(private readonly sessionService: SessionService) {}
 
-    //api logi
+    //api login
     @Mutation(() => UserModel, { name: 'loginUser' })
     public async login(
         @Context() { req }: GqlContext,

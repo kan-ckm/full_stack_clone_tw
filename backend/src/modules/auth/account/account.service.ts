@@ -10,11 +10,13 @@ export class AccountService {
     // khai báo tự tạo PrismaService ko cần tạo thủ công
     public constructor(private readonly prismaService: PrismaService) {}
 
-    // query lấy tất cả người dùng
-    public async findAll() {
-        const users = await this.prismaService.user.findMany()
-
-        return users
+    public async me(id: string) {
+        const user = await this.prismaService.user.findUnique({
+            where: {
+                id
+            }
+        })
+        return user
     }
     // query tạo người dùng
     public async create(input: CreateUserInput) {
