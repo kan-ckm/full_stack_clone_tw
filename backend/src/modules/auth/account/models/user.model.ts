@@ -1,8 +1,10 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 
+import type { User } from '@/prisma/generated'
+
 // định dạng khi query api thì sẽ lấy những gì cho client
 @ObjectType()
-export class UserModel {
+export class UserModel implements User {
     @Field(() => ID)
     public id: string
 

@@ -3,7 +3,7 @@ import { hash } from 'argon2'
 
 import { PrismaService } from '@/src/core/prisma/prisma.service'
 
-import type { CreateUserInput } from '../inputs/create-user.input'
+import type { CreateUserInput } from './inputs/create-user.input'
 
 @Injectable()
 export class AccountService {

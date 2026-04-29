@@ -3,9 +3,8 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Authorization } from '@/src/shared/decorators/auth.decorator'
 import { Authorized } from '@/src/shared/decorators/authorized.decorator'
 
-import { CreateUserInput } from '../inputs/create-user.input'
-
 import { AccountService } from './account.service'
+import { CreateUserInput } from './inputs/create-user.input'
 import { UserModel } from './models/user.model'
 
 //resolver nó na ná định nghĩa API
